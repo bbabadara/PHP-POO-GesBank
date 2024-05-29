@@ -6,19 +6,13 @@ abstract class  Model
     protected string $columns;
     protected string $values;
 
-
-
     public function findAll()
     {
         $SQL_SELECT_ALL = "select * from $this->table";
         $result = $this->openConnexion()->query($SQL_SELECT_ALL);
-        var_dump($result);
+        // var_dump($result);
         $all = $result->fetchAll(PDO::FETCH_CLASS,$this->class);
         return $all;
-    }
-    public function save(){
-        $SQL_INSERT="insert into $this->table ($this->columns) values ($this->values)";
-        $result = $this->openConnexion()->exec($SQL_INSERT); 
     }
     
     protected function openConnexion()
@@ -29,4 +23,11 @@ abstract class  Model
             'gesbankabc123'
         );
     }
+
+
 }
+
+// public function save(){
+//     $SQL_INSERT="insert into $this->table ($this->columns) values ($this->values)";
+//     $result = $this->openConnexion()->exec($SQL_INSERT); 
+// }

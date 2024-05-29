@@ -7,4 +7,9 @@ class User extends Model{
     private string $email;
     private string $pwd;
     private string $justificatif;
+
+    public function __construct(){
+        $this->table= "users";
+        $this->class= "User";
+    }
 }
